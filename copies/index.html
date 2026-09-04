@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SkillBridge | Academia-Industry Portal</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- ================= SIDEBAR ================= -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+            <div class="logo-icon">S</div>
+            <div>
+                <h2>SkillBridge</h2>
+                <span>Tech Warriors</span>
+            </div>
+        </div>
+
+        <nav>
+
+            <p class="nav-title">MAIN</p>
+
+            <a href="#" class="nav-link active" onclick="showPage('dashboard', this)">
+                <span>⌂</span>
+                Dashboard
+            </a>
+
+            <a href="#" class="nav-link" onclick="showPage('opportunities', this)">
+                <span>◈</span>
+                Opportunities
+            </a>
+
+            <a href="#" class="nav-link" onclick="showPage('skills', this)">
+                <span>◆</span>
+                My Skills
+            </a>
+
+            <a href="#" class="nav-link" onclick="showPage('skillgap', this)">
+                <span>⚙</span>
+                Skill Gap
+            </a>
+
+            <a href="#" class="nav-link" onclick="showPage('applications', this)">
+                <span>▣</span>
+                Applications
+            </a>
+
+            <p class="nav-title">PROFILE</p>
+
+            <a href="#" class="nav-link" onclick="showPage('profile', this)">
+                <span>○</span>
+                My Profile
+            </a>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+
+            <div class="help-box">
+                <strong>Need guidance?</strong>
+                <p>Find the skills required for your dream role.</p>
+                <button onclick="showPage('skillgap')">Explore Skills →</button>
+            </div>
+
+            <div class="user-mini">
+                <div class="avatar">H</div>
+                <div>
+                    <strong>Hari</strong>
+                    <span>Student</span>
+                </div>
+            </div>
+
+        </div>
+
+    </aside>
+
+
+    <!-- ================= MAIN ================= -->
+
+    <main class="main">
+
+        <!-- HEADER -->
+
+        <header class="header">
+
+            <div>
+                <h1 id="page-title">Student Dashboard</h1>
+                <p id="page-subtitle">
+                    Track your career readiness and industry opportunities.
+                </p>
+            </div>
+
+            <div class="header-right">
+
+                <div class="notification">
+                    🔔
+                    <span></span>
+                </div>
+
+                <div class="profile-circle">
+                    H
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- ================= DASHBOARD ================= -->
+
+        <section id="dashboard" class="page active-page">
+
+            <div class="welcome">
+
+                <div>
+                    <p class="small-text">THURSDAY, SEPTEMBER 3</p>
+
+                    <h2>
+                        Good morning, Hari 👋
+                    </h2>
+
+                    <p>
+                        You're getting closer to becoming industry-ready.
+                    </p>
+                </div>
+
+                <button class="primary-btn" onclick="showPage('opportunities')">
+                    Find Opportunities →
+                </button>
+
+            </div>
+
+
+            <!-- STATS -->
+
+            <div class="stats-grid">
+
+                <div class="stat-card">
+
+                    <div class="stat-icon blue">◆</div>
+
+                    <div>
+                        <span>Skill Readiness</span>
+                        <h3>72%</h3>
+                        <small class="positive">↑ 8% this month</small>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon purple">◎</div>
+
+                    <div>
+                        <span>Profile Strength</span>
+                        <h3>86%</h3>
+                        <small class="positive">↑ 12% this month</small>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon orange">◈</div>
+
+                    <div>
+                        <span>Matched Roles</span>
+                        <h3>14</h3>
+                        <small>3 new today</small>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon green">✓</div>
+
+                    <div>
+                        <span>Applications</span>
+                        <h3>05</h3>
+                        <small>2 interviews</small>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- DASHBOARD GRID -->
+
+            <div class="dashboard-grid">
+
+                <!-- SKILL READINESS -->
+
+                <div class="card readiness-card">
+
+                    <div class="card-header">
+
+                        <div>
+                            <h3>Skill Readiness</h3>
+                            <p>Your current industry readiness</p>
+                        </div>
+
+                        <button class="text-btn" onclick="showPage('skills')">
+                            View details →
+                        </button>
+
+                    </div>
+
+                    <div class="readiness-content">
+
+                        <div class="progress-ring">
+
+                            <div class="ring-inner">
+                                <strong>72%</strong>
+                                <span>Ready</span>
+                            </div>
+
+                        </div>
+
+                        <div class="skill-summary">
+
+                            <div class="skill-row">
+                                <span>Technical Skills</span>
+                                <strong>78%</strong>
+                            </div>
+
+                            <div class="bar">
+                                <div style="width:78%"></div>
+                            </div>
+
+
+                            <div class="skill-row">
+                                <span>Communication</span>
+                                <strong>65%</strong>
+                            </div>
+
+                            <div class="bar">
+                                <div style="width:65%"></div>
+                            </div>
+
+
+                            <div class="skill-row">
+                                <span>Problem Solving</span>
+                                <strong>74%</strong>
+                            </div>
+
+                            <div class="bar">
+                                <div style="width:74%"></div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PROFILE COMPLETION -->
+
+                <div class="card">
+
+                    <div class="card-header">
+
+                        <div>
+                            <h3>Complete your profile</h3>
+                            <p>Improve your matching accuracy</p>
+                        </div>
+
+                        <strong class="profile-percent">86%</strong>
+
+                    </div>
+
+                    <div class="profile-progress">
+                        <div></div>
+                    </div>
+
+                    <ul class="check-list">
+
+                        <li class="done">
+                            <span>✓</span>
+                            Basic information
+                        </li>
+
+                        <li class="done">
+                            <span>✓</span>
+                            Education
+                        </li>
+
+                        <li class="done">
+                            <span>✓</span>
+                            Technical skills
+                        </li>
+
+                        <li>
+                            <span>+</span>
+                            Add projects
+                        </li>
+
+                        <li>
+                            <span>+</span>
+                            Upload resume
+                        </li>
+
+                    </ul>
+
+                    <button class="outline-btn" onclick="showPage('profile')">
+                        Complete Profile
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- MATCHES -->
+
+            <div class="card">
+
+                <div class="card-header">
+
+                    <div>
+                        <h3>Recommended for you</h3>
+                        <p>Opportunities matched with your skills</p>
+                    </div>
+
+                    <button class="text-btn" onclick="showPage('opportunities')">
+                        View all →
+                    </button>
+
+                </div>
+
+
+                <div class="opportunity-grid">
+
+                    <div class="opportunity-card">
+
+                        <div class="company-logo">T</div>
+
+                        <div class="match-badge">
+                            94% Match
+                        </div>
+
+                        <h3>Frontend Developer Intern</h3>
+
+                        <p class="company">
+                            TechNova Solutions
+                        </p>
+
+                        <div class="tags">
+                            <span>HTML</span>
+                            <span>CSS</span>
+                            <span>JavaScript</span>
+                        </div>
+
+                        <div class="opportunity-footer">
+                            <span>📍 Chennai</span>
+                            <span>⏱ 3 Months</span>
+                        </div>
+
+                        <button class="apply-btn" onclick="applyJob(this)">
+                            View Opportunity
+                        </button>
+
+                    </div>
+
+
+                    <div class="opportunity-card">
+
+                        <div class="company-logo purple-logo">D</div>
+
+                        <div class="match-badge">
+                            88% Match
+                        </div>
+
+                        <h3>Java Developer Intern</h3>
+
+                        <p class="company">
+                            DataCore Technologies
+                        </p>
+
+                        <div class="tags">
+                            <span>Java</span>
+                            <span>SQL</span>
+                            <span>Git</span>
+                        </div>
+
+                        <div class="opportunity-footer">
+                            <span>📍 Bengaluru</span>
+                            <span>⏱ 6 Months</span>
+                        </div>
+
+                        <button class="apply-btn" onclick="applyJob(this)">
+                            View Opportunity
+                        </button>
+
+                    </div>
+
+
+                    <div class="opportunity-card">
+
+                        <div class="company-logo orange-logo">A</div>
+
+                        <div class="match-badge">
+                            81% Match
+                        </div>
+
+                        <h3>Software Engineer Intern</h3>
+
+                        <p class="company">
+                            Alpha Systems
+                        </p>
+
+                        <div class="tags">
+                            <span>Python</span>
+                            <span>Git</span>
+                            <span>DSA</span>
+                        </div>
+
+                        <div class="opportunity-footer">
+                            <span>📍 Hyderabad</span>
+                            <span>⏱ 4 Months</span>
+                        </div>
+
+                        <button class="apply-btn" onclick="applyJob(this)">
+                            View Opportunity
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= OPPORTUNITIES ================= -->
+
+        <section id="opportunities" class="page">
+
+            <div class="page-actions">
+
+                <div>
+                    <h2>Industry Opportunities</h2>
+                    <p>Jobs, internships and live projects matched to your profile.</p>
+                </div>
+
+                <button class="primary-btn">
+                    + Create Alert
+                </button>
+
+            </div>
+
+
+            <div class="search-bar">
+
+                <span>⌕</span>
+
+                <input
+                    type="text"
+                    placeholder="Search jobs, skills or companies..."
+                    onkeyup="searchJobs(this.value)"
+                >
+
+                <select>
+                    <option>All Opportunities</option>
+                    <option>Internships</option>
+                    <option>Jobs</option>
+                    <option>Live Projects</option>
+                </select>
+
+            </div>
+
+
+            <div id="jobs-container" class="jobs-container">
+
+                <div class="job-card">
+
+                    <div class="company-logo">T</div>
+
+                    <div class="job-main">
+
+                        <div class="match-badge">94% Match</div>
+
+                        <h3>Frontend Developer Intern</h3>
+
+                        <p>TechNova Solutions</p>
+
+                        <div class="tags">
+                            <span>HTML</span>
+                            <span>CSS</span>
+                            <span>JavaScript</span>
+                            <span>React</span>
+                        </div>
+
+                        <div class="job-info">
+                            📍 Chennai &nbsp; • &nbsp;
+                            💼 Internship &nbsp; • &nbsp;
+                            ⏱ 3 Months
+                        </div>
+
+                    </div>
+
+                    <button class="apply-btn" onclick="applyJob(this)">
+                        Apply
+                    </button>
+
+                </div>
+
+
+                <div class="job-card">
+
+                    <div class="company-logo purple-logo">D</div>
+
+                    <div class="job-main">
+
+                        <div class="match-badge">88% Match</div>
+
+                        <h3>Java Developer Intern</h3>
+
+                        <p>DataCore Technologies</p>
+
+                        <div class="tags">
+                            <span>Java</span>
+                            <span>SQL</span>
+                            <span>Git</span>
+                            <span>Spring Boot</span>
+                        </div>
+
+                        <div class="job-info">
+                            📍 Bengaluru &nbsp; • &nbsp;
+                            💼 Internship &nbsp; • &nbsp;
+                            ⏱ 6 Months
+                        </div>
+
+                    </div>
+
+                    <button class="apply-btn" onclick="applyJob(this)">
+                        Apply
+                    </button>
+
+                </div>
+
+
+                <div class="job-card">
+
+                    <div class="company-logo orange-logo">A</div>
+
+                    <div class="job-main">
+
+                        <div class="match-badge">81% Match</div>
+
+                        <h3>Software Engineer Intern</h3>
+
+                        <p>Alpha Systems</p>
+
+                        <div class="tags">
+                            <span>Python</span>
+                            <span>DSA</span>
+                            <span>Git</span>
+                        </div>
+
+                        <div class="job-info">
+                            📍 Hyderabad &nbsp; • &nbsp;
+                            💼 Internship &nbsp; • &nbsp;
+                            ⏱ 4 Months
+                        </div>
+
+                    </div>
+
+                    <button class="apply-btn" onclick="applyJob(this)">
+                        Apply
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= SKILLS ================= -->
+
+        <section id="skills" class="page">
+
+            <div class="page-actions">
+
+                <div>
+                    <h2>My Skills</h2>
+                    <p>Skills detected from your profile, projects and assessments.</p>
+                </div>
+
+                <button class="primary-btn">
+                    + Add Skill
+                </button>
+
+            </div>
+
+
+            <div class="skills-layout">
+
+                <div class="card">
+
+                    <h3>Technical Skills</h3>
+
+                    <div class="skill-item">
+                        <div>
+                            <strong>Java</strong>
+                            <span>Intermediate</span>
+                        </div>
+
+                        <div class="skill-level">
+                            <div style="width:75%"></div>
+                        </div>
+
+                        <b>75%</b>
+                    </div>
+
+
+                    <div class="skill-item">
+                        <div>
+                            <strong>HTML / CSS</strong>
+                            <span>Advanced</span>
+                        </div>
+
+                        <div class="skill-level">
+                            <div style="width:88%"></div>
+                        </div>
+
+                        <b>88%</b>
+                    </div>
+
+
+                    <div class="skill-item">
+                        <div>
+                            <strong>JavaScript</strong>
+                            <span>Intermediate</span>
+                        </div>
+
+                        <div class="skill-level">
+                            <div style="width:68%"></div>
+                        </div>
+
+                        <b>68%</b>
+                    </div>
+
+
+                    <div class="skill-item">
+                        <div>
+                            <strong>SQL</strong>
+                            <span>Intermediate</span>
+                        </div>
+
+                        <div class="skill-level">
+                            <div style="width:64%"></div>
+                        </div>
+
+                        <b>64%</b>
+                    </div>
+
+                </div>
+
+
+                <div class="card assessment-card">
+
+                    <div class="ai-icon">✦</div>
+
+                    <h3>Take Skill Assessment</h3>
+
+                    <p>
+                        Test your skills and improve your matching accuracy.
+                    </p>
+
+                    <button class="primary-btn">
+                        Start Assessment →
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= SKILL GAP ================= -->
+
+        <section id="skillgap" class="page">
+
+            <div class="page-actions">
+
+                <div>
+                    <h2>Skill Gap Analysis</h2>
+                    <p>See exactly what you need to learn for your target role.</p>
+                </div>
+
+                <select class="role-select">
+                    <option>Frontend Developer</option>
+                    <option>Java Developer</option>
+                    <option>Software Engineer</option>
+                </select>
+
+            </div>
+
+
+            <div class="gap-hero">
+
+                <div>
+
+                    <span class="ai-label">✦ SMART ANALYSIS</span>
+
+                    <h2>
+                        Your current match:
+                        <strong>72%</strong>
+                    </h2>
+
+                    <p>
+                        You already have most of the skills required for
+                        Frontend Developer roles.
+                    </p>
+
+                </div>
+
+                <div class="big-progress">
+                    <div>
+                        72%
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="gap-grid">
+
+                <div class="card">
+
+                    <div class="card-header">
+                        <div>
+                            <h3>Skills you have</h3>
+                            <p>Skills matching the target role</p>
+                        </div>
+                    </div>
+
+                    <div class="skill-pills">
+
+                        <span class="skill-have">✓ HTML</span>
+                        <span class="skill-have">✓ CSS</span>
+                        <span class="skill-have">✓ JavaScript</span>
+                        <span class="skill-have">✓ Git</span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="card gap-card">
+
+                    <div class="card-header">
+                        <div>
+                            <h3>Skills to improve</h3>
+                            <p>Recommended learning path</p>
+                        </div>
+                    </div>
+
+
+                    <div class="learning-item">
+
+                        <div class="learning-number">01</div>
+
+                        <div>
+                            <strong>React.js</strong>
+                            <p>High priority · 2–3 weeks</p>
+                        </div>
+
+                        <button>Learn →</button>
+
+                    </div>
+
+
+                    <div class="learning-item">
+
+                        <div class="learning-number">02</div>
+
+                        <div>
+                            <strong>REST APIs</strong>
+                            <p>Medium priority · 1 week</p>
+                        </div>
+
+                        <button>Learn →</button>
+
+                    </div>
+
+
+                    <div class="learning-item">
+
+                        <div class="learning-number">03</div>
+
+                        <div>
+                            <strong>Advanced JavaScript</strong>
+                            <p>Medium priority · 2 weeks</p>
+                        </div>
+
+                        <button>Learn →</button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= APPLICATIONS ================= -->
+
+        <section id="applications" class="page">
+
+            <div class="page-actions">
+
+                <div>
+                    <h2>My Applications</h2>
+                    <p>Track your internship and job applications.</p>
+                </div>
+
+            </div>
+
+
+            <div class="card">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+                            <th>Opportunity</th>
+                            <th>Company</th>
+                            <th>Match</th>
+                            <th>Status</th>
+                            <th>Applied</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+                            <td><strong>Frontend Developer Intern</strong></td>
+                            <td>TechNova Solutions</td>
+                            <td>94%</td>
+                            <td><span class="status interview">Interview</span></td>
+                            <td>Aug 28</td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Java Developer Intern</strong></td>
+                            <td>DataCore</td>
+                            <td>88%</td>
+                            <td><span class="status pending">Under Review</span></td>
+                            <td>Aug 30</td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Software Engineer Intern</strong></td>
+                            <td>Alpha Systems</td>
+                            <td>81%</td>
+                            <td><span class="status rejected">Not Selected</span></td>
+                            <td>Aug 22</td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= PROFILE ================= -->
+
+        <section id="profile" class="page">
+
+            <div class="page-actions">
+
+                <div>
+                    <h2>My Profile</h2>
+                    <p>Your professional identity on SkillBridge.</p>
+                </div>
+
+                <button class="primary-btn">
+                    Edit Profile
+                </button>
+
+            </div>
+
+
+            <div class="profile-layout">
+
+                <div class="card profile-main">
+
+                    <div class="profile-big">
+
+                        <div class="profile-avatar">
+                            H
+                        </div>
+
+                        <div>
+                            <h2>Hari</h2>
+                            <p>Computer Science Student</p>
+                            <span>📍 Chennai, India</span>
+                        </div>
+
+                    </div>
+
+
+                    <hr>
+
+
+                    <h3>About</h3>
+
+                    <p>
+                        Computer Science student interested in software
+                        development, web development and cybersecurity.
+                    </p>
+
+
+                    <h3>Technical Skills</h3>
+
+                    <div class="skill-pills">
+
+                        <span>Java</span>
+                        <span>HTML</span>
+                        <span>CSS</span>
+                        <span>JavaScript</span>
+                        <span>Git</span>
+                        <span>SQL</span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="card">
+
+                    <h3>Verified Profile</h3>
+
+                    <div class="verification">
+                        ✓
+                    </div>
+
+                    <p>
+                        Your education and skill information can be verified
+                        by your institution.
+                    </p>
+
+                    <button class="outline-btn">
+                        View Digital Portfolio
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ================= TOAST ================= -->
+
+    <div id="toast" class="toast">
+        ✓ Application submitted successfully
+    </div>
+
+
+    <script src="script.js"></script>
+    
+
+</body>
+
+</html>

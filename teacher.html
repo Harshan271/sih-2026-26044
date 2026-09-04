@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkillBridge | Faculty & Academia Dashboard</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="apple-touch-icon" href="favicon.svg">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- ================= SIDEBAR ================= -->
+    <aside class="sidebar">
+
+        <div class="logo">
+            <div class="logo-icon" style="background: transparent; display: flex; align-items: center; justify-content: center; padding: 0;">
+                <img src="favicon.svg" alt="SkillBridge Logo" style="width: 38px; height: 38px; display: block; border-radius: 10px;">
+            </div>
+            <div>
+                <h2>SkillBridge</h2>
+                <span>Faculty Portal · SIH 2026</span>
+            </div>
+        </div>
+
+        <nav>
+            <p class="nav-title">ACADEMIA</p>
+
+            <a href="#" class="nav-link active" onclick="showPage('dashboard', this)">
+                <span>⌂</span> Dashboard
+            </a>
+
+            <a href="#" class="nav-link" onclick="showPage('students', this)">
+                <span>♙</span> Students
+            </a>
+
+            <a href="#" class="nav-link" onclick="showPage('skills', this)">
+                <span>◆</span> Skill Analytics
+            </a>
+
+            <a href="#" class="nav-link" onclick="showPage('opportunities', this)">
+                <span>◈</span> Opportunities
+            </a>
+
+            <a href="#" class="nav-link" onclick="showPage('industry', this)">
+                <span>◎</span> Industry Connect
+            </a>
+
+            <a href="#" class="nav-link" onclick="showPage('training', this)">
+                <span>▣</span> Training & FDP
+            </a>
+
+            <p class="nav-title">MANAGEMENT</p>
+
+            <a href="#" class="nav-link" onclick="showPage('placements', this)">
+                <span>↗</span> Placements
+            </a>
+
+            <a href="#" class="nav-link" onclick="showPage('reports', this)">
+                <span>▤</span> Reports
+            </a>
+        </nav>
+
+        <div class="sidebar-bottom">
+            <div class="help-box">
+                <strong>Industry Demand Alert</strong>
+                <p>12 new skill requirements detected from recruiters this month.</p>
+                <button onclick="showPage('skills')">View Analysis →</button>
+            </div>
+
+            <div class="user-mini">
+                <div class="avatar teacher-avatar">T</div>
+                <div>
+                    <strong>Prof. R. Sharma</strong>
+                    <span>Faculty Admin (CSE Dept)</span>
+                    <a href="index.html" class="logout-link">↪ Logout</a>
+                </div>
+            </div>
+        </div>
+
+    </aside>
+
+    <!-- ================= MAIN ================= -->
+    <main class="main">
+
+        <!-- HEADER -->
+        <header class="header">
+            <div>
+                <h1 id="page-title">Faculty Dashboard</h1>
+                <p id="page-subtitle">Monitor student readiness, curriculum alignment, and industry connections.</p>
+            </div>
+
+            <div class="header-right">
+                <span class="portal-tag" style="background:#dbeafe; color:#1d4ed8; border-color:#bfdbfe;">Faculty Portal</span>
+                <div class="notification" onclick="showToast('4 students shortlisted for interview today!')">
+                    🔔
+                    <span></span>
+                </div>
+                <div class="profile-circle teacher" onclick="showToast('Logged in as Prof. Sharma (CSE Dept Head)')">
+                    T
+                </div>
+            </div>
+        </header>
+
+        <!-- ================= DASHBOARD ================= -->
+        <section id="dashboard" class="page active-page">
+
+            <div class="welcome teacher-welcome">
+                <div>
+                    <p class="small-text">ACADEMIC YEAR 2026–27</p>
+                    <h2>Computer Science & Engineering Department</h2>
+                    <p>Current industry-readiness overview: 72% of batch 2026 is currently pre-qualified for placements.</p>
+                </div>
+
+                <button class="primary-btn" onclick="showPage('reports')">
+                    Generate NBA/NAAC Report →
+                </button>
+            </div>
+
+            <!-- STATS -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon blue">♙</div>
+                    <div>
+                        <span>Total Students</span>
+                        <h3>428</h3>
+                        <small class="positive">CSE Batch 2026</small>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon purple">◆</div>
+                    <div>
+                        <span>Industry Ready</span>
+                        <h3>72%</h3>
+                        <small class="positive">↑ 9% this semester</small>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon green">✓</div>
+                    <div>
+                        <span>Internship Offers</span>
+                        <h3>186</h3>
+                        <small class="positive">43.4% Placed</small>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon orange">◎</div>
+                    <div>
+                        <span>Industry Partners</span>
+                        <h3>28</h3>
+                        <small>Active recruiters</small>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DASHBOARD GRID -->
+            <div class="dashboard-grid">
+
+                <!-- READINESS OVERVIEW -->
+                <div class="card">
+                    <div class="card-header">
+                        <div>
+                            <h3>Cohort Readiness & Skill Coverage</h3>
+                            <p>Department benchmarks vs industry recruitment standards</p>
+                        </div>
+                        <button class="text-btn" onclick="showPage('skills')">Detailed Analytics →</button>
+                    </div>
+
+                    <div class="readiness-content">
+                        <div class="progress-ring" style="background: conic-gradient(#16a34a 72%, #e8e9f1 0);">
+                            <div class="ring-inner">
+                                <strong style="color:#16a34a;">72%</strong>
+                                <span>Ready</span>
+                            </div>
+                        </div>
+
+                        <div class="skill-summary">
+                            <div class="skill-row">
+                                <span>Java & Object Oriented</span>
+                                <strong>85% (Proficient)</strong>
+                            </div>
+                            <div class="bar"><div style="width:85%; background:#16a34a;"></div></div>
+
+                            <div class="skill-row">
+                                <span>Web & Full Stack Tech</span>
+                                <strong>68% (Moderate)</strong>
+                            </div>
+                            <div class="bar"><div style="width:68%; background:#f59e0b;"></div></div>
+
+                            <div class="skill-row">
+                                <span>Docker & Cloud Deployment</span>
+                                <strong>32% (Critical Gap)</strong>
+                            </div>
+                            <div class="bar"><div style="width:32%; background:#dc2626;"></div></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TOP SKILLS DEMANDED -->
+                <div class="card">
+                    <div class="card-header">
+                        <div>
+                            <h3>Current Industry Skill Demand</h3>
+                            <p>Extracted from 48 recruiter postings this month</p>
+                        </div>
+                    </div>
+
+                    <div class="demand-card">
+                        <div>
+                            <strong>Docker & Container Security</strong>
+                            <span>34 Companies Requiring</span>
+                        </div>
+                        <div class="demand-badge">+38% Demand</div>
+                    </div>
+
+                    <div class="demand-card">
+                        <div>
+                            <strong>Spring Boot & Microservices</strong>
+                            <span>28 Companies Requiring</span>
+                        </div>
+                        <div class="demand-badge">+24% Demand</div>
+                    </div>
+
+                    <div class="demand-card">
+                        <div>
+                            <strong>React.js & Modern UI</strong>
+                            <span>26 Companies Requiring</span>
+                        </div>
+                        <div class="demand-badge">+19% Demand</div>
+                    </div>
+
+                    <button class="outline-btn" style="width:100%; margin-top:14px;" onclick="showPage('skills')">
+                        Align Curriculum with Demand →
+                    </button>
+                </div>
+
+            </div>
+
+            <!-- RECENT STUDENT HIGHLIGHTS -->
+            <div class="card">
+                <div class="card-header">
+                    <div>
+                        <h3>Recent Student Placement & Interview Activities</h3>
+                        <p>Live updates from student applications and interview schedules</p>
+                    </div>
+                    <button class="text-btn" onclick="showPage('students')">View All Students →</button>
+                </div>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Student</th>
+                            <th>Target Role</th>
+                            <th>Company</th>
+                            <th>Match Score</th>
+                            <th>Current Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Hariharan S</strong> (CSE)</td>
+                            <td>Frontend Developer Intern</td>
+                            <td>TechNova Solutions</td>
+                            <td><strong style="color:var(--primary);">94%</strong></td>
+                            <td><span class="status interview">Interview Round 1</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Priya Sharma</strong> (CSE)</td>
+                            <td>Java Backend Developer</td>
+                            <td>DataCore Technologies</td>
+                            <td><strong style="color:var(--primary);">91%</strong></td>
+                            <td><span class="status ready">Offer Extended</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Ankit Verma</strong> (CSE)</td>
+                            <td>Cloud DevOps Intern</td>
+                            <td>Alpha Systems</td>
+                            <td><strong style="color:var(--orange);">74%</strong></td>
+                            <td><span class="status pending">In Skill Bridge Track</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </section>
+
+        <!-- ================= STUDENTS ================= -->
+        <section id="students" class="page">
+            <div class="page-actions">
+                <div>
+                    <h2>Student Readiness Directory</h2>
+                    <p>Track academic performance, skill assessments, and hiring status.</p>
+                </div>
+                <button class="primary-btn" onclick="showToast('Exporting student readiness roster to Excel/PDF...')">
+                    Export Student Roster
+                </button>
+            </div>
+
+            <div class="search-bar">
+                <span>⌕</span>
+                <input type="text" placeholder="Search student name, roll number, or skill..." onkeyup="searchStudents(this.value)">
+                <select onchange="filterStudentStatus(this.value)">
+                    <option value="all">All Statuses</option>
+                    <option value="ready">Placement Ready</option>
+                    <option value="internship">In Interview / Internship</option>
+                    <option value="support">Needs Skill Support</option>
+                </select>
+            </div>
+
+            <div class="card">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Roll No. & Student</th>
+                            <th>CGPA</th>
+                            <th>Readiness Score</th>
+                            <th>Primary Focus</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="students-table-body">
+                        <tr data-status="internship">
+                            <td><strong>2026CS1044 · Hariharan S</strong></td>
+                            <td>8.74</td>
+                            <td><strong style="color:var(--primary);">78%</strong></td>
+                            <td>Frontend & React</td>
+                            <td><span class="status interview">Interview Scheduled</span></td>
+                            <td><button class="outline-btn" onclick="showToast('Viewing verified portfolio of Hariharan S')">View Profile</button></td>
+                        </tr>
+                        <tr data-status="ready">
+                            <td><strong>2026CS1018 · Priya Sharma</strong></td>
+                            <td>8.92</td>
+                            <td><strong style="color:var(--green);">91%</strong></td>
+                            <td>Java & Microservices</td>
+                            <td><span class="status ready">Offer Received</span></td>
+                            <td><button class="outline-btn" onclick="showToast('Viewing verified portfolio of Priya Sharma')">View Profile</button></td>
+                        </tr>
+                        <tr data-status="internship">
+                            <td><strong>2026CS1082 · Siddharth M</strong></td>
+                            <td>8.21</td>
+                            <td><strong style="color:var(--primary);">82%</strong></td>
+                            <td>Edge AI & Robotics</td>
+                            <td><span class="status internship">Live Project Active</span></td>
+                            <td><button class="outline-btn" onclick="showToast('Viewing verified portfolio of Siddharth M')">View Profile</button></td>
+                        </tr>
+                        <tr data-status="support">
+                            <td><strong>2026CS1104 · Ankit Verma</strong></td>
+                            <td>7.65</td>
+                            <td><strong style="color:var(--orange);">62%</strong></td>
+                            <td>Cloud DevOps</td>
+                            <td><span class="status support">Needs Docker Training</span></td>
+                            <td><button class="outline-btn" onclick="showToast('Assigning personalized roadmap to Ankit')">Assign Roadmap</button></td>
+                        </tr>
+                        <tr data-status="ready">
+                            <td><strong>2026CS1055 · Kavitha R</strong></td>
+                            <td>9.14</td>
+                            <td><strong style="color:var(--green);">89%</strong></td>
+                            <td>Full Stack Python</td>
+                            <td><span class="status ready">Placement Ready</span></td>
+                            <td><button class="outline-btn" onclick="showToast('Viewing verified portfolio of Kavitha R')">View Profile</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- ================= SKILL ANALYTICS ================= -->
+        <section id="skills" class="page">
+            <div class="page-actions">
+                <div>
+                    <h2>Curriculum & Skill Gap Analytics</h2>
+                    <p>Empirical evidence to update syllabi and bridge student gaps before placements.</p>
+                </div>
+            </div>
+
+            <!-- AI Curriculum Alignment Recommendation (Slide 2 & 4) -->
+            <div class="recommendation-banner">
+                <div class="ai-icon">💡</div>
+                <div style="flex:1;">
+                    <h4>AI Board-of-Studies Curriculum Advisory</h4>
+                    <p>
+                        Analysis of 48 live industry postings indicates that <strong>68% of recruiting companies</strong> 
+                        require <em>Docker & Container Security</em>. Our 6th-semester syllabus currently lacks practical cloud deployment.
+                    </p>
+                </div>
+                <button class="primary-btn" onclick="adoptCurriculum(this, 'Cloud & Containers')">
+                    Adopt in Syllabus →
+                </button>
+            </div>
+
+            <div class="dashboard-grid">
+                <!-- Cohort Deficit Heatmap -->
+                <div class="card">
+                    <div class="card-header">
+                        <div>
+                            <h3>Cohort Skill Deficit Heatmap (Batch 2026)</h3>
+                            <p>Percentage of students lacking specific industry capabilities</p>
+                        </div>
+                    </div>
+
+                    <div class="cohort-bars">
+                        <div class="cohort-row">
+                            <span>Docker & Containers</span>
+                            <div class="cohort-bar"><div class="cohort-fill" style="width:68%;"></div></div>
+                            <strong style="color:var(--red);">68% Deficit</strong>
+                        </div>
+
+                        <div class="cohort-row">
+                            <span>Spring Boot & Microservices</span>
+                            <div class="cohort-bar"><div class="cohort-fill warning" style="width:52%;"></div></div>
+                            <strong style="color:var(--orange);">52% Deficit</strong>
+                        </div>
+
+                        <div class="cohort-row">
+                            <span>React & State Management</span>
+                            <div class="cohort-bar"><div class="cohort-fill warning" style="width:38%;"></div></div>
+                            <strong style="color:var(--orange);">38% Deficit</strong>
+                        </div>
+
+                        <div class="cohort-row">
+                            <span>Relational SQL & Queries</span>
+                            <div class="cohort-bar"><div class="cohort-fill success" style="width:16%;"></div></div>
+                            <strong style="color:var(--green);">16% (Good)</strong>
+                        </div>
+
+                        <div class="cohort-row">
+                            <span>Core Java & OOP</span>
+                            <div class="cohort-bar"><div class="cohort-fill success" style="width:12%;"></div></div>
+                            <strong style="color:var(--green);">12% (Strong)</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Suggested Actions -->
+                <div class="card">
+                    <div class="card-header">
+                        <div>
+                            <h3>Recommended Interventions</h3>
+                            <p>Immediate steps to boost department placement rate</p>
+                        </div>
+                    </div>
+
+                    <div style="display:flex; flex-direction:column; gap:12px;">
+                        <div style="background:#f8fafc; padding:12px; border-radius:8px; border:1px solid #e2e8f0;">
+                            <strong style="font-size:12px;">1. Schedule 3-Day Docker Bootcamp</strong>
+                            <p style="font-size:11px; color:var(--muted); margin-top:2px;">Sponsored by TechNova corporate trainers for 3rd-year students.</p>
+                            <button class="outline-btn" style="margin-top:8px;" onclick="showToast('Docker Bootcamp scheduled for next weekend!')">Schedule Bootcamp</button>
+                        </div>
+
+                        <div style="background:#f8fafc; padding:12px; border-radius:8px; border:1px solid #e2e8f0;">
+                            <strong style="font-size:12px;">2. Mandatory Mock Coding Assessments</strong>
+                            <p style="font-size:11px; color:var(--muted); margin-top:2px;">Automated aptitude and data structures pre-screening tests.</p>
+                            <button class="outline-btn" style="margin-top:8px;" onclick="showToast('Mock Assessment assigned to all 428 students!')">Dispatch Assessment</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= OPPORTUNITIES ================= -->
+        <section id="opportunities" class="page">
+            <div class="page-actions">
+                <div>
+                    <h2>Live Industry Opportunities</h2>
+                    <p>Current openings posted by verified recruiting companies.</p>
+                </div>
+            </div>
+
+            <div class="opportunity-grid">
+                <div class="opportunity-card">
+                    <div class="company-logo">T</div>
+                    <div class="match-badge">34 Eligible Students</div>
+                    <h3>Frontend Developer Intern</h3>
+                    <p class="company">TechNova Solutions · Chennai</p>
+                    <div class="tags">
+                        <span>HTML</span><span>CSS</span><span>JavaScript</span><span>React</span>
+                    </div>
+                    <div class="opportunity-footer">
+                        <span>Stipend: ₹25,000/mo</span>
+                        <span>Deadline: Sep 15</span>
+                    </div>
+                    <button class="primary-btn" onclick="showToast('Batch recommendations dispatched to TechNova HR!')">
+                        Recommend Top Students
+                    </button>
+                </div>
+
+                <div class="opportunity-card">
+                    <div class="company-logo purple-logo">D</div>
+                    <div class="match-badge">26 Eligible Students</div>
+                    <h3>Java Developer Intern</h3>
+                    <p class="company">DataCore Technologies · Bengaluru</p>
+                    <div class="tags">
+                        <span>Java</span><span>SQL</span><span>Spring Boot</span>
+                    </div>
+                    <div class="opportunity-footer">
+                        <span>Stipend: ₹30,000/mo</span>
+                        <span>Deadline: Sep 20</span>
+                    </div>
+                    <button class="primary-btn" onclick="showToast('Batch recommendations dispatched to DataCore HR!')">
+                        Recommend Top Students
+                    </button>
+                </div>
+
+                <div class="opportunity-card">
+                    <div class="company-logo orange-logo">A</div>
+                    <div class="match-badge">19 Eligible Students</div>
+                    <h3>Software Engineer Trainee</h3>
+                    <p class="company">Alpha Systems · Hyderabad</p>
+                    <div class="tags">
+                        <span>Python</span><span>DSA</span><span>Git</span>
+                    </div>
+                    <div class="opportunity-footer">
+                        <span>Package: 8.5 LPA</span>
+                        <span>Deadline: Sep 30</span>
+                    </div>
+                    <button class="primary-btn" onclick="showToast('Batch recommendations dispatched to Alpha Systems HR!')">
+                        Recommend Top Students
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= INDUSTRY CONNECT ================= -->
+        <section id="industry" class="page">
+            <div class="page-actions">
+                <div>
+                    <h2>Academia-Industry Collaboration (Slide 4)</h2>
+                    <p>Faculty-Company joint research, consulting on technical problems, and technology updates.</p>
+                </div>
+                <button class="primary-btn" onclick="showToast('Technical problem submission form opened')">
+                    + Propose Joint Project
+                </button>
+            </div>
+
+            <div class="dashboard-grid">
+                <div class="card">
+                    <h3>Active Industrial Technical Challenges</h3>
+                    <p style="font-size:12px; color:var(--muted); margin-bottom:16px;">Real-world problems posted by companies for faculty-student research.</p>
+
+                    <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:10px; padding:16px; margin-bottom:14px;">
+                        <span class="demand-badge" style="background:#ede9fe; color:#6d28d9;">R&D Challenge #104</span>
+                        <h4 style="font-size:14px; margin:6px 0 4px;">Low-Latency Vector Indexing for GenAI Search</h4>
+                        <p style="font-size:12px; color:var(--muted);">TechNova Solutions · Faculty Lead Needed · ₹3.5 Lakh Grant</p>
+                        <button class="primary-btn" style="margin-top:10px;" onclick="showToast('Consulting proposal drafted by CSE Department!')">Lead Consultation →</button>
+                    </div>
+
+                    <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:10px; padding:16px;">
+                        <span class="demand-badge" style="background:#ecfeff; color:#0e7490;">IoT & Robotics Challenge</span>
+                        <h4 style="font-size:14px; margin:6px 0 4px;">Edge Vision System for Autonomous Warehouse Carts</h4>
+                        <p style="font-size:12px; color:var(--muted);">CloudWave Robotics · CSE/ECE Joint Research · ₹5.0 Lakh Grant</p>
+                        <button class="primary-btn" style="margin-top:10px;" onclick="showToast('Research collaboration initiated!')">Lead Consultation →</button>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>MoU & Corporate Network</h3>
+                    <p style="font-size:12px; color:var(--muted); margin-bottom:16px;">28 active corporate partners providing internships & FDPs.</p>
+
+                    <div style="display:flex; flex-direction:column; gap:10px;">
+                        <div style="display:flex; justify-content:space-between; align-items:center; padding:10px 0; border-bottom:1px solid #f1f2f6;">
+                            <div>
+                                <strong>TechNova Solutions</strong>
+                                <div style="font-size:11px; color:var(--muted);">Tier 1 Partner · 48 Hires</div>
+                            </div>
+                            <span class="status ready">Active MoU</span>
+                        </div>
+
+                        <div style="display:flex; justify-content:space-between; align-items:center; padding:10px 0; border-bottom:1px solid #f1f2f6;">
+                            <div>
+                                <strong>DataCore Technologies</strong>
+                                <div style="font-size:11px; color:var(--muted);">Enterprise Partner · 32 Hires</div>
+                            </div>
+                            <span class="status ready">Active MoU</span>
+                        </div>
+
+                        <div style="display:flex; justify-content:space-between; align-items:center; padding:10px 0;">
+                            <div>
+                                <strong>CloudWave Robotics</strong>
+                                <div style="font-size:11px; color:var(--muted);">R&D Sponsor · 14 Hires</div>
+                            </div>
+                            <span class="status ready">Active MoU</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= TRAINING & FDP ================= -->
+        <section id="training" class="page">
+            <div class="page-actions">
+                <div>
+                    <h2>Faculty Development Programs (FDP) & Workshops</h2>
+                    <p>Up-to-date industrial technology training for academic faculty and lab staff (Slide 4).</p>
+                </div>
+            </div>
+
+            <div class="opportunity-grid">
+                <div class="card">
+                    <span class="demand-badge" style="background:#fee2e2; color:#991b1b;">High Priority FDP</span>
+                    <h3 style="font-size:15px; margin:10px 0 4px;">Generative AI & LLMs in Production</h3>
+                    <p style="font-size:12px; color:var(--muted); margin-bottom:14px;">5-day hands-on corporate workshop conducted by TechNova AI engineers.</p>
+                    <div style="font-size:11px; color:var(--muted); margin-bottom:14px;">
+                        📅 Oct 10–14, 2026 &nbsp; • &nbsp; 📍 Hybrid / Campus
+                    </div>
+                    <button class="primary-btn" style="width:100%;" onclick="nominateFaculty(this, 'GenAI FDP')">
+                        Nominate Faculty
+                    </button>
+                </div>
+
+                <div class="card">
+                    <span class="demand-badge" style="background:#fef3c7; color:#92400e;">DevOps Workshop</span>
+                    <h3 style="font-size:15px; margin:10px 0 4px;">Kubernetes & CI/CD Pipelines</h3>
+                    <p style="font-size:12px; color:var(--muted); margin-bottom:14px;">Hands-on training for professors to establish modern cloud labs.</p>
+                    <div style="font-size:11px; color:var(--muted); margin-bottom:14px;">
+                        📅 Nov 02–05, 2026 &nbsp; • &nbsp; 📍 Hands-on Cloud Lab
+                    </div>
+                    <button class="primary-btn" style="width:100%;" onclick="nominateFaculty(this, 'DevOps FDP')">
+                        Nominate Faculty
+                    </button>
+                </div>
+
+                <div class="card">
+                    <span class="demand-badge" style="background:#dbeafe; color:#1e40af;">Pedagogy & Trends</span>
+                    <h3 style="font-size:15px; margin:10px 0 4px;">Industry-Aligned Curriculum Design</h3>
+                    <p style="font-size:12px; color:var(--muted); margin-bottom:14px;">AICTE approved curriculum restructuring masterclass for HODs.</p>
+                    <div style="font-size:11px; color:var(--muted); margin-bottom:14px;">
+                        📅 Nov 18–19, 2026 &nbsp; • &nbsp; 📍 University Auditorium
+                    </div>
+                    <button class="primary-btn" style="width:100%;" onclick="nominateFaculty(this, 'Curriculum Design FDP')">
+                        Nominate Faculty
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= PLACEMENTS ================= -->
+        <section id="placements" class="page">
+            <div class="page-actions">
+                <div>
+                    <h2>Placements & Internship Tracking</h2>
+                    <p>Real-time outcomes, recruiter statistics, and salary metrics for batch 2026.</p>
+                </div>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon green">₹</div>
+                    <div>
+                        <span>Highest Package</span>
+                        <h3>18.5 LPA</h3>
+                        <small class="positive">TechNova Solutions</small>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon blue">📊</div>
+                    <div>
+                        <span>Average Package</span>
+                        <h3>7.2 LPA</h3>
+                        <small class="positive">↑ 14% vs 2025</small>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon purple">🎓</div>
+                    <div>
+                        <span>Offers Released</span>
+                        <h3>186</h3>
+                        <small class="positive">43.4% Placement Rate</small>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon orange">⏱</div>
+                    <div>
+                        <span>Active Drives</span>
+                        <h3>08</h3>
+                        <small>Ongoing this week</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Placement Outcome Distribution</h3>
+                <p style="font-size:12px; color:var(--muted); margin-bottom:14px;">Status breakdown for 428 final-year Computer Science students.</p>
+
+                <div style="display:flex; height:28px; border-radius:6px; overflow:hidden; margin-bottom:14px;">
+                    <div style="width:43.4%; background:#16a34a; color:white; display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:700;">
+                        Placed (43.4%)
+                    </div>
+                    <div style="width:34.6%; background:#3b82f6; color:white; display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:700;">
+                        In Interview Rounds (34.6%)
+                    </div>
+                    <div style="width:22.0%; background:#f59e0b; color:white; display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:700;">
+                        Skill Bridge Track (22%)
+                    </div>
+                </div>
+
+                <div style="display:flex; gap:24px; font-size:12px; color:var(--muted);">
+                    <span>🟢 186 Students Placed</span>
+                    <span>🔵 148 In Interview Process</span>
+                    <span>🟡 94 In Skill Gap Closing Roadmaps</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= REPORTS ================= -->
+        <section id="reports" class="page">
+            <div class="page-actions">
+                <div>
+                    <h2>Accreditation & Outcome Reports</h2>
+                    <p>Auto-generated evidence reports for NBA, NAAC, AICTE and NIRF inspections.</p>
+                </div>
+            </div>
+
+            <div class="dashboard-grid">
+                <div class="card">
+                    <h3>NBA Criterion 2: Teaching & Learning Outcomes</h3>
+                    <p style="font-size:12px; color:var(--muted); margin:6px 0 16px;">
+                        Demonstrates industry skill mapping, student diagnostic assessments, and curriculum alignment initiatives.
+                    </p>
+                    <button class="primary-btn" onclick="showToast('NBA Criterion 2 PDF Report downloaded!')">
+                        📥 Download NBA Report (PDF)
+                    </button>
+                </div>
+
+                <div class="card">
+                    <h3>NAAC Criterion 5: Student Support & Progression</h3>
+                    <p style="font-size:12px; color:var(--muted); margin:6px 0 16px;">
+                        Complete roster of student internships, placement packages, and career guidance roadmaps.
+                    </p>
+                    <button class="primary-btn" onclick="showToast('NAAC Criterion 5 Progression Summary downloaded!')">
+                        📥 Download NAAC Report (PDF)
+                    </button>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ================= TOAST ================= -->
+    <div id="toast" class="toast">
+        ✓ Action completed successfully
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        function showPage(pageId, element = null) {
+            const pages = document.querySelectorAll(".page");
+            pages.forEach(page => page.classList.remove("active-page"));
+
+            const selectedPage = document.getElementById(pageId);
+            if (selectedPage) {
+                selectedPage.classList.add("active-page");
+            }
+
+            const navLinks = document.querySelectorAll(".nav-link");
+            navLinks.forEach(link => link.classList.remove("active"));
+
+            if (element) {
+                element.classList.add("active");
+            } else {
+                navLinks.forEach(link => {
+                    if (link.getAttribute("onclick") && link.getAttribute("onclick").includes(`'${pageId}'`)) {
+                        link.classList.add("active");
+                    }
+                });
+            }
+
+            const titles = {
+                dashboard: "Faculty Dashboard",
+                students: "Students Directory",
+                skills: "Skill Analytics & Curriculum",
+                opportunities: "Industry Opportunities",
+                industry: "Industry Connect & Joint R&D",
+                training: "Training & FDP",
+                placements: "Placements Overview",
+                reports: "Accreditation Reports"
+            };
+
+            const subtitles = {
+                dashboard: "Monitor student readiness, curriculum alignment, and industry connections.",
+                students: "Track student performance, skill assessments, and hiring status.",
+                skills: "Empirical evidence to update syllabi and bridge student gaps before placements.",
+                opportunities: "Current openings posted by verified recruiting companies.",
+                industry: "Faculty-Company joint research, consulting on technical problems, and technology updates.",
+                training: "Up-to-date industrial technology training for academic faculty and lab staff.",
+                placements: "Real-time outcomes, recruiter statistics, and salary metrics for batch 2026.",
+                reports: "Auto-generated evidence reports for NBA, NAAC, AICTE and NIRF inspections."
+            };
+
+            if (titles[pageId]) document.getElementById("page-title").textContent = titles[pageId];
+            if (subtitles[pageId]) document.getElementById("page-subtitle").textContent = subtitles[pageId];
+
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+
+        function searchStudents(query) {
+            const trs = document.querySelectorAll("#students-table-body tr");
+            const q = query.toLowerCase();
+
+            trs.forEach(tr => {
+                const text = tr.innerText.toLowerCase();
+                tr.style.display = text.includes(q) ? "" : "none";
+            });
+        }
+
+        function filterStudentStatus(status) {
+            const trs = document.querySelectorAll("#students-table-body tr");
+            trs.forEach(tr => {
+                if (status === "all") {
+                    tr.style.display = "";
+                } else {
+                    const st = tr.getAttribute("data-status");
+                    tr.style.display = (st === status) ? "" : "none";
+                }
+            });
+        }
+
+        function adoptCurriculum(btn, subject) {
+            btn.textContent = "Scheduled in Syllabus ✓";
+            btn.style.background = "#16a34a";
+            btn.disabled = true;
+            showToast(`"${subject}" added to upcoming Academic Board-of-Studies syllabus revision!`);
+        }
+
+        function nominateFaculty(btn, fdpTitle) {
+            btn.textContent = "Faculty Nominated ✓";
+            btn.style.background = "#16a34a";
+            btn.disabled = true;
+            showToast(`Department faculty delegation nominated for ${fdpTitle}!`);
+        }
+
+        function showToast(message) {
+            const toast = document.getElementById("toast");
+            toast.textContent = "✓ " + message;
+            toast.classList.add("show");
+
+            setTimeout(() => {
+                toast.classList.remove("show");
+            }, 3200);
+        }
+    </script>
+
+</body>
+</html>

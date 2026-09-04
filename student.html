@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SkillBridge — Student & Faculty Portal | SIH 2026</title>
+  <meta name="description" content="SkillBridge: Portal for Academia-Industry collaboration for Skill Mapping, Internships and Placements (SIH26044)">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="apple-touch-icon" href="favicon.svg">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Top SIH 2026 Header Banner -->
+  <header class="top-banner">
+    <div>
+      <span class="sih-badge">SIH 2026 • PS ID: SIH26044</span>
+      <span style="margin-left: 10px; opacity: 0.9;">Problem Statement: Portal for Academia-Industry Collaboration for Skill Mapping, Internships & Placements</span>
+    </div>
+    <div class="banner-links">
+      <span>Team: <strong>Tech Warriors</strong></span>
+      <span>Status: <strong>Evaluation Prototype Live</strong></span>
+    </div>
+  </header>
+
+  <!-- Main Navigation Bar with Perspective Switcher -->
+  <nav class="app-navbar">
+    <div class="brand-wrapper">
+      <div class="brand-logo-icon">
+        <img src="favicon.svg" alt="SkillBridge Logo" width="42" height="42">
+      </div>
+      <div class="brand-text">
+        <h1>Skill<span>Bridge</span></h1>
+        <div class="brand-subtitle">Academia-Industry Collaboration Platform</div>
+      </div>
+    </div>
+
+    <!-- Perspective / Role Switcher -->
+    <div class="perspective-control">
+      <button class="perspective-btn active" data-perspective="student" onclick="window.SkillBridge.switchPerspective('student')">
+        <span>🎓</span> Student Portal
+      </button>
+      <button class="perspective-btn" data-perspective="company" onclick="window.SkillBridge.switchPerspective('company')">
+        <span>🏢</span> Company Portal
+      </button>
+      <button class="perspective-btn" data-perspective="faculty" onclick="window.SkillBridge.switchPerspective('faculty')">
+        <span>🏛️</span> Faculty Portal
+      </button>
+    </div>
+
+    <!-- Active User Profile Chip -->
+    <div class="user-chip">
+      <div class="avatar">HP</div>
+      <div class="user-info">
+        <div class="user-name">Hariprasad PS</div>
+        <div class="user-tag">B.Tech CSE • 7th Sem</div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Container -->
+  <main class="main-wrapper">
+
+    <!-- ====================================================================
+         1. STUDENT PORTAL PERSPECTIVE
+         ==================================================================== -->
+    <div id="portal-student" class="portal-panel active">
+
+      <!-- Executive Overview Metric Cards -->
+      <section class="hero-overview-grid">
+        <div class="metric-card indigo">
+          <div class="metric-header">
+            <span class="metric-title">Industry Readiness</span>
+            <div class="metric-icon-wrap">🎯</div>
+          </div>
+          <div class="metric-value-row">
+            <span id="metric-readiness" class="metric-value">78%</span>
+            <span class="metric-trend up">↑ +6% this month</span>
+          </div>
+          <div class="metric-hint">Calculated across 6 corporate benchmark vectors</div>
+        </div>
+
+        <div class="metric-card emerald">
+          <div class="metric-header">
+            <span class="metric-title">High-Match Offers</span>
+            <div class="metric-icon-wrap">💼</div>
+          </div>
+          <div class="metric-value-row">
+            <span id="metric-high-matches" class="metric-value">4</span>
+            <span class="metric-trend up">Tier 1 Qualified</span>
+          </div>
+          <div class="metric-hint">Algorithmic match score exceeding 85% benchmark</div>
+        </div>
+
+        <div class="metric-card amber">
+          <div class="metric-header">
+            <span class="metric-title">Critical Skill Gaps</span>
+            <div class="metric-icon-wrap">⚡</div>
+          </div>
+          <div class="metric-value-row">
+            <span id="metric-critical-gaps" class="metric-value">2</span>
+            <span class="metric-trend alert">Action Required</span>
+          </div>
+          <div class="metric-hint">Docker & Kubernetes for Tier 1 Cloud roles</div>
+        </div>
+
+        <div class="metric-card purple">
+          <div class="metric-header">
+            <span class="metric-title">Verified Badges</span>
+            <div class="metric-icon-wrap">🛡️</div>
+          </div>
+          <div class="metric-value-row">
+            <span id="metric-badges" class="metric-value">4</span>
+            <span class="metric-trend up">Cryptographic Seal</span>
+          </div>
+          <div class="metric-hint">Endorsed via company validation assignment tests</div>
+        </div>
+      </section>
+
+      <!-- Student Systems Tabs Navigation -->
+      <nav class="system-tabs-nav">
+        <button class="system-tab-btn active" data-tab="matching" onclick="window.SkillBridge.switchSystemTab('matching')">
+          <span>1. Matching System</span>
+          <span class="badge-count">6 Companies</span>
+        </button>
+        <button class="system-tab-btn" data-tab="gap-fixing" onclick="window.SkillBridge.switchSystemTab('gap-fixing')">
+          <span>2. Skill Gap Resolution Engine</span>
+          <span class="badge-count">Live Diagnostics</span>
+        </button>
+        <button class="system-tab-btn" data-tab="development" onclick="window.SkillBridge.switchSystemTab('development')">
+          <span>3. Skill Development System</span>
+          <span class="badge-count">Roadmaps & Labs</span>
+        </button>
+      </nav>
+
+      <!-- SYSTEM 1: MATCHING SYSTEM -->
+      <section id="sec-matching" class="system-section active">
+        <div class="section-header-row">
+          <div>
+            <h2><span>🎯</span> Algorithmic Company & Internship Matching</h2>
+            <p>Our multi-tier matching engine aligns your verified technical competencies against current corporate job requirements.</p>
+          </div>
+        </div>
+
+        <div class="matching-layout-grid">
+          <div class="company-list-wrapper">
+            <div class="filter-bar">
+              <div class="pill-filter-group">
+                <button class="pill-filter-btn active" data-tier="all" onclick="window.SkillBridge.setFilterTier('all')">All Roles (6)</button>
+                <button class="pill-filter-btn" data-tier="high" onclick="window.SkillBridge.setFilterTier('high')">High Match &gt;85%</button>
+                <button class="pill-filter-btn" data-tier="moderate" onclick="window.SkillBridge.setFilterTier('moderate')">Strong Fit 70-84%</button>
+                <button class="pill-filter-btn" data-tier="target" onclick="window.SkillBridge.setFilterTier('target')">Target Roles &lt;70%</button>
+              </div>
+
+              <div class="search-input-wrap">
+                <span class="search-icon">🔍</span>
+                <input id="search-company-input" type="text" class="search-input" placeholder="Filter company, role, skill...">
+              </div>
+            </div>
+
+            <div id="company-list-container"></div>
+          </div>
+
+          <!-- Right Column: Sticky Graphical SVG Radar Analysis -->
+          <aside class="graphical-analysis-card">
+            <div class="radar-header">
+              <h3>
+                <span>Multi-Axis Competency Radar</span>
+                <span class="severity-badge verified" style="font-size: 0.7rem;">Vector AI</span>
+              </h3>
+              <p>Comparing your verified scores against the corporate benchmark cutoff for <strong id="radar-target-company" style="color: #2563eb;">TechNova Solutions</strong>.</p>
+            </div>
+
+            <div class="radar-legend">
+              <div class="legend-item">
+                <div class="legend-dot student"></div>
+                <span>Your Verified Level</span>
+              </div>
+              <div class="legend-item">
+                <div class="legend-dot company"></div>
+                <span>Company Benchmark Cutoff</span>
+              </div>
+            </div>
+
+            <div id="radar-svg-container" class="radar-svg-container"></div>
+            <div id="category-bars-list" class="category-bars-list"></div>
+
+            <div class="radar-card-footer">
+              <button class="btn-secondary-full" onclick="window.SkillBridge.switchSystemTab('gap-fixing')">
+                Analyze Skill Gap for this Role in System 2 →
+              </button>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <!-- SYSTEM 2: SKILL GAP RESOLUTION ENGINE -->
+      <section id="sec-gap-fixing" class="system-section">
+        <div class="section-header-row">
+          <div>
+            <h2><span>⚡</span> Empirical Skill Gap Resolution Engine</h2>
+            <p>Direct mathematical comparison between your verified profile and target company benchmarks. Distinguishes Core blockers from Elective polish, calculates exact deficits (Δ), and dispatches automated feedback to the college curriculum board.</p>
+          </div>
+        </div>
+
+        <div class="gap-analysis-card">
+          <div class="gap-target-selector-row">
+            <div class="selector-label-group">
+              <label for="gap-company-selector">Select Target Company Benchmark</label>
+              <select id="gap-company-selector" class="role-select-dropdown"></select>
+            </div>
+
+            <div class="gap-quick-stats">
+              <div class="gap-stat-pill critical">
+                <span id="stat-critical-count" class="stat-pill-num">2</span>
+                <div class="stat-pill-text">Critical<br>Gaps</div>
+              </div>
+              <div class="gap-stat-pill recommended">
+                <span id="stat-rec-count" class="stat-pill-num">1</span>
+                <div class="stat-pill-text">Recommended<br>Gaps</div>
+              </div>
+              <div class="gap-stat-pill mastered">
+                <span id="stat-mastered-count" class="stat-pill-num">3</span>
+                <div class="stat-pill-text">Mastered<br>Competencies</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="gap-table-wrapper">
+            <table class="gap-table">
+              <thead>
+                <tr>
+                  <th>Competency Area</th>
+                  <th>Weight &amp; Type</th>
+                  <th>Company Cutoff</th>
+                  <th>Your Level</th>
+                  <th>Evidence Trust Tier</th>
+                  <th>Deficit (Δ)</th>
+                  <th>Severity Diagnostic</th>
+                  <th style="text-align: right;">Bridging Action</th>
+                </tr>
+              </thead>
+              <tbody id="gap-table-body"></tbody>
+            </table>
+          </div>
+
+          <!-- Direct Academia-Industry Syllabus Feedback Loop Box -->
+          <div class="syllabus-feedback-box">
+            <div class="feedback-text">
+              <h4><span>📢</span> Direct Academia-Industry Curriculum Feedback Loop</h4>
+              <p>Missing production skills like <strong>Docker Multi-stage Builds & Kubernetes Orchestration</strong>? Dispatch an official aggregate curriculum alert to the <strong>CSE Board of Studies (BOS)</strong> and <strong>T&amp;P Cell</strong> to queue hands-on campus virtual labs and update the elective course syllabus.</p>
+            </div>
+            <button class="btn-notify-academia" onclick="window.SkillBridge.notifyAcademia()">
+              <span>🔔</span> Alert College Curriculum Committee
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- SYSTEM 3: SKILL DEVELOPMENT SYSTEM -->
+      <section id="sec-development" class="system-section">
+        <div class="section-header-row">
+          <div>
+            <h2><span>🚀</span> Skill Development System: Curated Pathways & Verification</h2>
+            <p>Access company-uploaded roadmaps, interactive virtual sandboxes, company-endorsed validation quizzes with verifiable certificates, and 1:1 industry mentorship.</p>
+          </div>
+        </div>
+
+        <div class="dev-subtabs-nav">
+          <button class="dev-subtab-btn active" data-subtab="roadmaps" onclick="window.SkillBridge.switchDevSubtab('roadmaps')">
+            <span>🗺️</span> Company-Uploaded Roadmaps
+          </button>
+          <button class="dev-subtab-btn" data-subtab="labs" onclick="window.SkillBridge.switchDevSubtab('labs')">
+            <span>💻</span> Workshops & Virtual Labs
+          </button>
+          <button class="dev-subtab-btn" data-subtab="tests" onclick="window.SkillBridge.switchDevSubtab('tests')">
+            <span>📝</span> Skill Assignment Tests & Certificates
+          </button>
+          <button class="dev-subtab-btn" data-subtab="mentors" onclick="window.SkillBridge.switchDevSubtab('mentors')">
+            <span>👥</span> 1:1 Industry Mentorship
+          </button>
+        </div>
+
+        <div id="dev-subpanel-roadmaps" class="dev-subpanel active">
+          <div id="roadmaps-container"></div>
+        </div>
+
+        <div id="dev-subpanel-labs" class="dev-subpanel">
+          <div id="labs-container" class="labs-grid"></div>
+        </div>
+
+        <div id="dev-subpanel-tests" class="dev-subpanel">
+          <div class="tests-layout-grid">
+            <div class="test-listing-card">
+              <h3 style="font-family: var(--font-heading); font-size: 1.1rem; margin-bottom: 6px;">Company-Endorsed Assignment Tests</h3>
+              <p style="font-size: 0.78rem; color: #64748b; margin-bottom: 18px;">Passing these tests automatically boosts your readiness score, bridges your critical gaps, and issues an industry-recognized certificate.</p>
+
+              <div class="test-item-row">
+                <div class="test-info">
+                  <h4>TechNova Docker & Microservices Quiz</h4>
+                  <p>3 Questions • 10 Mins • Closes Critical Gap for Full Stack Role</p>
+                </div>
+                <button class="btn-action-sm" onclick="window.SkillBridge.launchQuizTest('docker')">Take Test ↗</button>
+              </div>
+
+              <div class="test-item-row">
+                <div class="test-info">
+                  <h4>AWS Cloud Solutions Architecture Quiz</h4>
+                  <p>5 Questions • 15 Mins • Endorsed by AWS Partner Network</p>
+                </div>
+                <button class="btn-action-sm" onclick="window.SkillBridge.showToast('AWS Quiz locked until Docker & Systems foundations are cleared.', 'info')">Locked 🔒</button>
+              </div>
+
+              <div class="test-item-row">
+                <div class="test-info">
+                  <h4>PostgreSQL Advanced Indexing & Query Tuning</h4>
+                  <p>Completed on 14 Aug 2026 • Score: 100%</p>
+                </div>
+                <button class="btn-action-sm" style="background: #22c55e;" onclick="window.SkillBridge.openCertificateModal('Relational DBMS & SQL Optimization')">View Certificate ✓</button>
+              </div>
+            </div>
+
+            <div class="certificate-preview-card">
+              <div class="cert-header">
+                <span class="cert-stamp">Verified Skill Certification</span>
+                <h3>Certificate of Competency</h3>
+                <p style="font-size: 0.75rem; color: #64748b;">Issued via SkillBridge Academia-Industry Protocol</p>
+              </div>
+              <div class="cert-body">
+                <p class="cert-desc">This is to certify that</p>
+                <div class="cert-recipient">Hariprasad PS</div>
+                <p class="cert-desc">has successfully cleared the company-endorsed technical assessment for</p>
+                <h4 style="font-size: 1.05rem; font-weight: 800; color: #0f172a; margin: 8px 0;">React.js & Full Stack REST Architecture</h4>
+                <p class="cert-desc">Demonstrating verified proficiency exceeding the benchmark threshold of 85%.</p>
+              </div>
+              <div class="cert-footer">
+                <div>
+                  <div class="cert-hash">HASH: 0x9F82A478B0C1E5</div>
+                  <div style="font-size: 0.7rem; color: #64748b; margin-top: 4px;">Endorsed by: <strong>TechNova Engineering</strong></div>
+                </div>
+                <div class="cert-seal">★</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="dev-subpanel-mentors" class="dev-subpanel">
+          <div id="mentors-container" class="mentors-grid"></div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ====================================================================
+         2. COMPANY PORTAL PERSPECTIVE (Recruiter View)
+         ==================================================================== -->
+    <div id="portal-company" class="portal-panel">
+      <div class="company-view-container">
+        <div class="recruiter-header-row">
+          <div>
+            <h2 style="font-family: var(--font-heading); font-size: 1.35rem; font-weight: 800; color: #0f172a;">
+              <span>🏢</span> Recruiter Candidate Matching Engine: <span id="recruiter-company-name" style="color: #2563eb;">TechNova Solutions</span>
+            </h2>
+            <p style="font-size: 0.82rem; color: #64748b; margin-top: 4px;">
+              View students algorithmically matched to your job criteria at different competency tiers with explainable factors.
+            </p>
+          </div>
+
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <label style="font-size: 0.78rem; font-weight: 700; color: #64748b;">Employer Account:</label>
+            <select id="recruiter-company-selector" class="role-select-dropdown">
+              <option value="technova">TechNova Solutions</option>
+              <option value="datacore">DataCore Technologies</option>
+              <option value="zoho">Zoho Corporation</option>
+              <option value="aws">Amazon Web Services</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="candidates-table-wrapper">
+          <table class="candidates-table">
+            <thead>
+              <tr>
+                <th>Candidate Profile</th>
+                <th>Match Tier &amp; Score</th>
+                <th>Verified Competencies &amp; Gaps</th>
+                <th>Skill Certifications</th>
+                <th>Recruitment Status</th>
+                <th style="text-align: right;">Action</th>
+              </tr>
+            </thead>
+            <tbody id="recruiter-candidates-tbody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- ====================================================================
+         3. COMPREHENSIVE FACULTY & ACADEMIA PORTAL
+         ==================================================================== -->
+    <div id="portal-faculty" class="portal-panel">
+      <div class="section-header-row">
+        <div>
+          <h2><span>🏛️</span> Academia Command Center: Student Progress, Market Intelligence & Industry Collaboration</h2>
+          <p>Real-time cohort skill analytics, market demand trends, direct syllabus update proposals to the Dean, faculty sabbaticals, and corporate FDPs.</p>
+        </div>
+      </div>
+
+      <!-- Faculty Sub-navigation Tabs -->
+      <nav class="faculty-subtabs-nav">
+        <button class="faculty-subtab-btn active" data-facultytab="students" onclick="window.SkillBridge.switchFacultySubtab('students')">
+          <span>👨‍🎓</span> Student Progress &amp; Profiles
+        </button>
+        <button class="faculty-subtab-btn" data-facultytab="market-tech" onclick="window.SkillBridge.switchFacultySubtab('market-tech')">
+          <span>📈</span> Emerging Market Technologies
+        </button>
+        <button class="faculty-subtab-btn" data-facultytab="curriculum-gap" onclick="window.SkillBridge.switchFacultySubtab('curriculum-gap')">
+          <span>📊</span> Curriculum Gap &amp; Dean Dispatch
+        </button>
+        <button class="faculty-subtab-btn" data-facultytab="collaboration" onclick="window.SkillBridge.switchFacultySubtab('collaboration')">
+          <span>🤝</span> Industry Collaboration &amp; Grants
+        </button>
+        <button class="faculty-subtab-btn" data-facultytab="fdps" onclick="window.SkillBridge.switchFacultySubtab('fdps')">
+          <span>🎓</span> Corporate FDPs &amp; Training
+        </button>
+      </nav>
+
+      <!-- 3A: Student Progress & Profiles -->
+      <div id="faculty-subpanel-students" class="faculty-subpanel active">
+        <div class="dean-proposal-card">
+          <div class="filter-bar" style="margin-bottom: 20px;">
+            <div class="pill-filter-group">
+              <button class="pill-filter-btn faculty-filter-btn active" data-filter="all" onclick="window.SkillBridge.setFacultyStudentFilter('all')">All Cohort (428)</button>
+              <button class="pill-filter-btn faculty-filter-btn" data-filter="ready" onclick="window.SkillBridge.setFacultyStudentFilter('ready')">Placement Ready &gt;85%</button>
+              <button class="pill-filter-btn faculty-filter-btn" data-filter="bridging" onclick="window.SkillBridge.setFacultyStudentFilter('bridging')">Active Bridging (70-84%)</button>
+              <button class="pill-filter-btn faculty-filter-btn" data-filter="support" onclick="window.SkillBridge.setFacultyStudentFilter('support')">Needs Support &lt;70%</button>
+            </div>
+
+            <div class="search-input-wrap" style="width: 260px;">
+              <span class="search-icon">🔍</span>
+              <input id="faculty-search-students" type="text" class="search-input" placeholder="Search student, roll, or building skill...">
+            </div>
+          </div>
+
+          <div class="candidates-table-wrapper">
+            <table class="candidates-table">
+              <thead>
+                <tr>
+                  <th>Student Profile</th>
+                  <th>CGPA</th>
+                  <th>Readiness &amp; Trend</th>
+                  <th>Skills Building in Real-Time</th>
+                  <th>Verified Badges</th>
+                  <th>Placement Status</th>
+                  <th style="text-align: right;">Action</th>
+                </tr>
+              </thead>
+              <tbody id="faculty-students-tbody"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3B: Emerging Market Technologies -->
+      <div id="faculty-subpanel-market-tech" class="faculty-subpanel">
+        <div style="background: #ffffff; border: 1px solid var(--border-light); border-radius: var(--radius-lg); padding: 22px; margin-bottom: 20px;">
+          <h3 style="font-family: var(--font-heading); font-size: 1.15rem; font-weight: 700; color: #0f172a; margin-bottom: 4px;">
+            Corporate Hiring Demand Intelligence vs Current College Syllabus
+          </h3>
+          <p style="font-size: 0.8rem; color: #64748b;">
+            Aggregated from 48 active hiring partners. Technologies tagged as "Missing" or "Outdated" trigger risk alerts for student placement conversions.
+          </p>
+        </div>
+
+        <div id="market-tech-container" class="market-tech-grid"></div>
+      </div>
+
+      <!-- 3C: Curriculum Gap Analytics & Dean Proposal Dispatch -->
+      <div id="faculty-subpanel-curriculum-gap" class="faculty-subpanel">
+        <div class="dean-proposal-card">
+          <div class="proposal-header-box">
+            <div>
+              <h3 style="font-family: var(--font-heading); font-size: 1.15rem; font-weight: 700; color: #0f172a;">
+                Curriculum Revision Proposals to Dean of Academics
+              </h3>
+              <p style="font-size: 0.8rem; color: #64748b; margin-top: 4px;">
+                Empirical proposals to update the university syllabus based on live company recruitment skill gaps.
+              </p>
+            </div>
+            <button class="btn-action-sm" style="padding: 10px 18px; font-size: 0.82rem;" onclick="window.SkillBridge.openSyllabusProposalModal('Docker Containerization & Kubernetes', 'CSE-402: Cloud Deployment Lab')">
+              + Draft New Proposal to Dean
+            </button>
+          </div>
+
+          <div class="candidates-table-wrapper">
+            <table class="candidates-table">
+              <thead>
+                <tr>
+                  <th>Tracking ID &amp; Date</th>
+                  <th>Proposal Subject &amp; Author</th>
+                  <th>Cohort Deficit Evidence</th>
+                  <th>Dean &amp; BOS Status</th>
+                </tr>
+              </thead>
+              <tbody id="proposals-table-tbody"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3D: Industry Collaboration & Grants -->
+      <div id="faculty-subpanel-collaboration" class="faculty-subpanel">
+        <div style="margin-bottom: 28px;">
+          <h3 style="font-family: var(--font-heading); font-size: 1.15rem; font-weight: 700; color: #0f172a; margin-bottom: 6px;">
+            🏢 Corporate Faculty Internships &amp; Sabbaticals
+          </h3>
+          <p style="font-size: 0.8rem; color: #64748b; margin-bottom: 16px;">
+            4 to 8-week corporate immersion programs with partner engineering teams to bring production architecture back to college classrooms.
+          </p>
+          <div id="collab-sabbaticals-container" class="collab-grid"></div>
+        </div>
+
+        <div style="margin-bottom: 28px;">
+          <h3 style="font-family: var(--font-heading); font-size: 1.15rem; font-weight: 700; color: #0f172a; margin-bottom: 6px;">
+            💡 Industrial Technical Problem Consulting Challenges
+          </h3>
+          <p style="font-size: 0.8rem; color: #64748b; margin-bottom: 16px;">
+            Real-world challenges posted by enterprise recruiters looking for academic faculty domain expertise and sponsored consulting grants.
+          </p>
+          <div id="collab-challenges-container" class="collab-grid"></div>
+        </div>
+
+        <div>
+          <h3 style="font-family: var(--font-heading); font-size: 1.15rem; font-weight: 700; color: #0f172a; margin-bottom: 6px;">
+            🔬 Joint Academia-Industry Sponsored R&amp;D Projects
+          </h3>
+          <p style="font-size: 0.8rem; color: #64748b; margin-bottom: 16px;">
+            Multi-quarter sponsored research grants co-developed with corporate laboratories for patents and IEEE publications.
+          </p>
+          <div id="collab-rnd-container" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;"></div>
+        </div>
+      </div>
+
+      <!-- 3E: Corporate FDPs & Training -->
+      <div id="faculty-subpanel-fdps" class="faculty-subpanel">
+        <div style="background: #ffffff; border: 1px solid var(--border-light); border-radius: var(--radius-lg); padding: 22px; margin-bottom: 20px;">
+          <h3 style="font-family: var(--font-heading); font-size: 1.15rem; font-weight: 700; color: #0f172a; margin-bottom: 4px;">
+            Company-Provided Faculty Development Programs (FDP) &amp; Educator Certifications
+          </h3>
+          <p style="font-size: 0.8rem; color: #64748b;">
+            Fully sponsored technological workshops and cloud certifications provided directly by partner companies for university faculty.
+          </p>
+        </div>
+
+        <div id="fdps-container" class="fdp-grid"></div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ====================================================================
+       INTERACTIVE MODALS
+       ==================================================================== -->
+
+  <!-- Quiz Test Modal -->
+  <div id="quiz-modal" class="modal-overlay">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>TechNova Docker &amp; Microservices Validation Quiz</h3>
+        <button class="modal-close-btn" onclick="window.SkillBridge.closeQuiz()">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div style="background: #eff6ff; border-left: 4px solid #2563eb; padding: 12px; border-radius: 6px; font-size: 0.78rem; color: #1e40af; margin-bottom: 20px;">
+          Pass this company validation test to prove container competency. Your score will immediately update across all corporate matching algorithms and issue a verified digital credential.
+        </div>
+
+        <div class="quiz-question-box">
+          <div class="quiz-q-title">1. Why are multi-stage Docker builds recommended in production Node.js applications?</div>
+          <div class="quiz-options-group">
+            <label class="quiz-option-label">
+              <input type="radio" name="q1" value="a">
+              <span>They run builds across multiple host machines in parallel.</span>
+            </label>
+            <label class="quiz-option-label">
+              <input type="radio" name="q1" value="b" checked>
+              <span>They separate dev dependencies/build tools from the final slim production image.</span>
+            </label>
+            <label class="quiz-option-label">
+              <input type="radio" name="q1" value="c">
+              <span>They automatically configure Kubernetes ingress load balancers.</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="quiz-question-box">
+          <div class="quiz-q-title">2. In a microservices architecture, how should services communicate asynchronously without tight coupling?</div>
+          <div class="quiz-options-group">
+            <label class="quiz-option-label">
+              <input type="radio" name="q2" value="a" checked>
+              <span>Via a message broker / event queue (e.g., RabbitMQ, Apache Kafka).</span>
+            </label>
+            <label class="quiz-option-label">
+              <input type="radio" name="q2" value="b">
+              <span>By directly reading and writing to a shared relational SQL database.</span>
+            </label>
+            <label class="quiz-option-label">
+              <input type="radio" name="q2" value="c">
+              <span>Through hardcoded synchronous HTTP requests without timeouts.</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="quiz-question-box" style="border-bottom: none;">
+          <div class="quiz-q-title">3. What is the role of Docker Compose in modern full-stack development?</div>
+          <div class="quiz-options-group">
+            <label class="quiz-option-label">
+              <input type="radio" name="q3" value="a" checked>
+              <span>Defining and running multi-container Docker applications with declarative YAML.</span>
+            </label>
+            <label class="quiz-option-label">
+              <input type="radio" name="q3" value="b">
+              <span>Compiling React frontend code into WebAssembly binaries.</span>
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn-secondary-full" style="width: auto; padding: 8px 16px;" onclick="window.SkillBridge.closeQuiz()">Cancel</button>
+        <button class="btn-action-sm" style="padding: 9px 20px;" onclick="window.SkillBridge.submitQuizAnswers()">Submit &amp; Verify Competency ↗</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Certificate Modal -->
+  <div id="cert-modal" class="modal-overlay">
+    <div class="modal-content" style="max-width: 650px;">
+      <div class="modal-header">
+        <h3>Verified Digital Credential</h3>
+        <button class="modal-close-btn" onclick="window.SkillBridge.closeCertificateModal()">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="certificate-preview-card" style="margin-bottom: 0;">
+          <div class="cert-header">
+            <span class="cert-stamp">Verified Skill Certification</span>
+            <h3>Certificate of Competency</h3>
+            <p style="font-size: 0.75rem; color: #64748b;">Issued via SkillBridge Academia-Industry Protocol</p>
+          </div>
+          <div class="cert-body">
+            <p class="cert-desc">This is to certify that</p>
+            <div class="cert-recipient">Hariprasad PS</div>
+            <p class="cert-desc">has successfully passed the rigorous company assessment in</p>
+            <h4 id="cert-skill-title" style="font-size: 1.15rem; font-weight: 800; color: #0f172a; margin: 8px 0;">Docker Containerization &amp; Microservices</h4>
+            <p class="cert-desc">Endorsed for technical readiness and qualified for direct employer interview matching.</p>
+          </div>
+          <div class="cert-footer">
+            <div>
+              <div id="cert-crypto-hash" class="cert-hash">HASH: 0x9F82A478B0C1E5</div>
+              <div style="font-size: 0.7rem; color: #64748b; margin-top: 4px;">
+                Issued On: <strong id="cert-issue-date">04 Sep 2026</strong> • Endorsed by <strong>TechNova Solutions</strong>
+              </div>
+            </div>
+            <div class="cert-seal">★</div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn-secondary-full" style="width: auto; padding: 8px 16px;" onclick="window.SkillBridge.closeCertificateModal()">Close</button>
+        <button class="btn-action-sm" style="padding: 9px 20px;" onclick="window.print();">Download / Print PDF 🖨️</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Student Profile Inspection Modal (For Faculty) -->
+  <div id="student-profile-modal" class="modal-overlay">
+    <div class="modal-content" style="max-width: 650px;">
+      <div class="modal-header">
+        <div>
+          <h3 id="modal-student-name">Student Profile</h3>
+          <p id="modal-student-roll" style="font-size: 0.75rem; color: #64748b; margin-top: 2px;">B.Tech CSE • 7th Semester</p>
+        </div>
+        <button class="modal-close-btn" onclick="window.SkillBridge.closeStudentProfile()">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 18px;">
+          <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 10px; padding: 14px;">
+            <div style="font-size: 0.72rem; font-weight: 700; color: #64748b; text-transform: uppercase;">Overall Readiness</div>
+            <div id="modal-student-readiness" style="font-family: var(--font-heading); font-size: 1.75rem; font-weight: 800; color: #2563eb;">78%</div>
+            <div style="font-size: 0.7rem; color: #22c55e;">↑ +6% progression this semester</div>
+          </div>
+          <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 10px; padding: 14px;">
+            <div style="font-size: 0.72rem; font-weight: 700; color: #64748b; text-transform: uppercase;">Target Recruiter &amp; Role</div>
+            <div id="modal-student-target" style="font-size: 0.88rem; font-weight: 700; color: #0f172a; margin-top: 4px;">TechNova Solutions (Full Stack)</div>
+            <div style="font-size: 0.7rem; color: #64748b;">Direct interview recommendation queue</div>
+          </div>
+        </div>
+
+        <div style="margin-bottom: 18px;">
+          <label style="font-size: 0.78rem; font-weight: 700; color: #64748b; text-transform: uppercase;">Skills Actively Building in Real-Time</label>
+          <div style="margin-top: 6px;">
+            <span class="skill-building-tag" style="font-size: 0.82rem; padding: 6px 14px;">
+              <span class="skill-building-dot"></span>
+              <span id="modal-student-building">Docker Containerization &amp; Microservices</span>
+            </span>
+          </div>
+        </div>
+
+        <div>
+          <label style="font-size: 0.78rem; font-weight: 700; color: #64748b; text-transform: uppercase; display: block; margin-bottom: 8px;">
+            Verified Industry Credentials &amp; Badges
+          </label>
+          <div id="modal-student-badges" style="display: flex; gap: 8px; flex-wrap: wrap;"></div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn-secondary-full" style="width: auto; padding: 8px 16px;" onclick="window.SkillBridge.closeStudentProfile()">Close</button>
+        <button class="btn-action-sm" onclick="window.SkillBridge.showToast('Assigned Cloud Native roadmap to student profile!', 'success'); window.SkillBridge.closeStudentProfile();">
+          Assign Recommended Roadmap ↗
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Syllabus Revision Proposal Modal to Dean -->
+  <div id="syllabus-proposal-modal" class="modal-overlay">
+    <div class="modal-content" style="max-width: 620px;">
+      <div class="modal-header">
+        <div>
+          <h3>Draft Formal Syllabus Revision to Dean of Academics</h3>
+          <p style="font-size: 0.75rem; color: #64748b; margin-top: 2px;">Addressed to: <strong>Dr. S. K. Mukherjee (Dean of Academics &amp; Chairman, Board of Studies)</strong></p>
+        </div>
+        <button class="modal-close-btn" onclick="window.SkillBridge.closeSyllabusProposalModal()">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div style="background: #eff6ff; border-left: 4px solid #3b82f6; padding: 12px; border-radius: 6px; font-size: 0.78rem; color: #1e40af; margin-bottom: 18px;">
+          This formal proposal dispatches an official Board of Studies (BOS) syllabus revision agenda item based on real-time empirical industry deficits tracked across the 2026 graduating batch.
+        </div>
+
+        <div class="form-group">
+          <label for="proposal-tech-name">Target Industry Technology / Gap</label>
+          <input id="proposal-tech-name" type="text" class="form-input">
+        </div>
+
+        <div class="form-group">
+          <label for="proposal-target-course">Target University Course / Elective Code</label>
+          <input id="proposal-target-course" type="text" class="form-input">
+        </div>
+
+        <div class="form-group">
+          <label for="proposal-rationale">Empirical Deficit Justification &amp; Industry Rationale</label>
+          <textarea id="proposal-rationale" class="form-textarea"></textarea>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn-secondary-full" style="width: auto; padding: 8px 16px;" onclick="window.SkillBridge.closeSyllabusProposalModal()">Cancel</button>
+        <button class="btn-action-sm" style="padding: 9px 20px;" onclick="window.SkillBridge.submitProposalToDean()">
+          Submit Proposal to Dean &amp; BOS ↗
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Explainable AI Matching Breakdown Modal -->
+  <div id="match-breakdown-modal" class="modal-overlay">
+    <div class="modal-content" style="max-width: 740px;">
+      <div class="modal-header">
+        <div>
+          <h3>Algorithmic Match Breakdown &amp; Mathematical Verification</h3>
+          <p style="font-size: 0.75rem; color: #64748b; margin-top: 2px;">
+            Engine: <strong>Weighted Vector Scoring with Attainment &amp; Evidence Trust (WVSE-v2)</strong>
+          </p>
+        </div>
+        <button class="modal-close-btn" onclick="window.SkillBridge.closeMatchBreakdownModal()">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="formula-banner">
+          <div class="formula-label">MATHEMATICAL SCORING SPECIFICATION</div>
+          <div class="formula-code">
+            Score = &sum; [ Weight<sub>i</sub> &times; min(1.0, Level<sub>i</sub> / Cutoff<sub>i</sub>) &times; TrustMultiplier<sub>i</sub> ] - CoreDeficitPenalty
+          </div>
+          <div class="formula-meta">
+            <span>🛡️ Tier 3 Verified: <strong>1.00x</strong></span> • 
+            <span>⚡ Tier 2 Assessed: <strong>0.75x</strong></span> • 
+            <span>📝 Tier 1 Self-Claimed: <strong>0.40x</strong></span>
+          </div>
+        </div>
+
+        <div style="margin-bottom: 12px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;">
+          <div>
+            <span style="font-size: 0.88rem; font-weight: 700; color: #0f172a;" id="breakdown-company-title">TechNova Solutions — Full Stack Cloud Intern</span>
+          </div>
+          <div>
+            <span id="breakdown-total-score" class="score-pill tier-moderate" style="font-size: 0.95rem; padding: 4px 14px;">84% Composite Match</span>
+          </div>
+        </div>
+
+        <div class="gap-table-wrapper" style="margin-bottom: 18px;">
+          <table class="gap-table" style="font-size: 0.78rem;">
+            <thead>
+              <tr>
+                <th>Competency Area</th>
+                <th>Type</th>
+                <th>Weight</th>
+                <th>Cutoff</th>
+                <th>Your Level</th>
+                <th>Trust Tier</th>
+                <th style="text-align: right;">Contribution</th>
+              </tr>
+            </thead>
+            <tbody id="breakdown-table-body"></tbody>
+          </table>
+        </div>
+
+        <div class="breakdown-note-box">
+          <span style="font-size: 1.1rem;">💡</span>
+          <div id="breakdown-explain-text" style="font-size: 0.78rem; color: #1e293b; line-height: 1.5;">
+            <strong>Explainable AI Diagnostic:</strong> Candidate demonstrates 100% verified mastery across Core Front-end and Database requirements. However, 16% score penalty is incurred due to unverified containerization proficiency in Docker and Kubernetes.
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn-secondary-full" style="width: auto; padding: 8px 16px;" onclick="window.SkillBridge.closeMatchBreakdownModal()">Close Inspector</button>
+        <button class="btn-action-sm" style="padding: 9px 20px;" onclick="window.SkillBridge.closeMatchBreakdownModal(); window.SkillBridge.switchSystemTab('gap-fixing');">
+          Bridge Critical Gaps in Resolution Engine ↗
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Recruiter Post-Interview Telemetry Modal -->
+  <div id="recruiter-feedback-modal" class="modal-overlay">
+    <div class="modal-content" style="max-width: 640px;">
+      <div class="modal-header">
+        <div>
+          <h3>Submit Post-Interview Candidate Telemetry</h3>
+          <p style="font-size: 0.75rem; color: #64748b; margin-top: 2px;">
+            Dispatches closed-loop feedback to student profile &amp; Academic Board of Studies
+          </p>
+        </div>
+        <button class="modal-close-btn" onclick="window.SkillBridge.closeRecruiterFeedbackModal()">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div style="background: #f0fdf4; border-left: 4px solid #22c55e; padding: 12px; border-radius: 6px; font-size: 0.78rem; color: #166534; margin-bottom: 16px;">
+          This evaluation updates candidate readiness telemetry, refines the institution's weighted algorithm, and alerts the university Curriculum Committee on real-world hiring deficits.
+        </div>
+
+        <div class="form-group">
+          <label>Target Candidate</label>
+          <input id="feedback-candidate-name" type="text" class="form-input" readonly value="Hariprasad PS (2022CSE1042)">
+        </div>
+
+        <div class="form-group">
+          <label>Interview Evaluation Outcome</label>
+          <select id="feedback-outcome" class="role-select-dropdown" style="width: 100%;">
+            <option value="shortlist">Passed Technical Screening — Proceed to Final Round</option>
+            <option value="offer">Extended Full Internship + PPO Offer</option>
+            <option value="gap-found">Deficit Identified — Placed on Active Bridging Track</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Observed Core Strengths</label>
+          <input id="feedback-strengths" type="text" class="form-input" value="Clean React state management, fast SQL query optimization, strong Git hygiene">
+        </div>
+
+        <div class="form-group">
+          <label>Observed Technical Deficits / Gaps (Feeds BoS Curriculum)</label>
+          <textarea id="feedback-deficits" class="form-textarea" placeholder="e.g. Candidate struggled with Docker container persistent volume mounts...">Candidate demonstrated superior SQL and REST API architecture, but struggled with Docker multi-stage builds and persistent volume mounts during live sandbox coding challenge.</textarea>
+        </div>
+
+        <div style="display: flex; align-items: center; gap: 8px; font-size: 0.78rem; color: #475569; margin-top: 10px;">
+          <input type="checkbox" id="feedback-sync-bos" checked style="accent-color: #2563eb;">
+          <label for="feedback-sync-bos">Automatically dispatch aggregate telemetry to Dean Dr. S. K. Mukherjee &amp; College Board of Studies</label>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn-secondary-full" style="width: auto; padding: 8px 16px;" onclick="window.SkillBridge.closeRecruiterFeedbackModal()">Cancel</button>
+        <button class="btn-action-sm" style="padding: 9px 20px;" onclick="window.SkillBridge.submitRecruiterFeedback()">
+          Submit Feedback &amp; Update Telemetry ↗
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Container -->
+  <div id="toast-container" class="toast-container"></div>
+
+  <!-- Platform Core Engine -->
+  <script src="script.js"></script>
+</body>
+</html>
